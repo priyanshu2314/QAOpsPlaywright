@@ -4,7 +4,7 @@ const { customtest } = require("../Utils/test-base");
 const { POManager } = require("../pageobjects/POManager");
 //Json->string->js object
 const dataset = JSON.parse(
-  JSON.stringify(require("../utils/placeorderTestData.json")),
+  JSON.stringify(require("../Utils/placeorderTestData.json")),
 );
 
 for (const data of dataset) {
