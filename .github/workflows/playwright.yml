@@ -19,13 +19,6 @@ jobs:
       uses: azure/login@v3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Assign Storage Blob Data Contributor Role
-      run: |
-        az role assignment create \
-          --assignee "${{ secrets.AZURE_CLIENT_ID }}" \
-          --role "Storage Blob Data Contributor" \
-          --scope "/subscriptions/8f1f0c0c-472f-4f83-9df8-c989446bc06f/resourceGroups/RRD/providers/Microsoft.Storage/storageAccounts/pwstrgrrdbf8e" \
-          2>/dev/null || echo "Role already assigned, continuing..."
     - name: Run Playwright tests
       env:
         PLAYWRIGHT_SERVICE_URL: ${{ vars.PLAYWRIGHT_SERVICE_URL }}
